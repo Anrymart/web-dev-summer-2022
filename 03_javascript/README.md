@@ -1,7 +1,3 @@
-## Topics
-
-* Debugging JavaScript
-
 ## Problems
 
 1. Factorize a number
@@ -17,9 +13,22 @@
    starting from and ending with to. More complex version: print Fibonacci
    series in the same manner.
 
-https://hackernoon.com/javascript-practical-coding-challenges-for-beginners-4bq3ugr
 
-1. Create a vector library: addition, subtraction, scalar product, abs
+## Home Task
+
+Implement a JavaScript library for 2D-vectors. User should be able to create vector, add, subtract, multiply (scalar product), find length, find unit vectors, find direction angle. Operations should not modify current vector.
+
+Here is an example of how the library may be used:
+
+```javascript
+// Constructing a vector
+const a = new Vector(1, 2);
+// Another possible way to construct a vector
+const b = Vector.of(2, 0.5);
+
+const sum = a.add(b);
+const abs = sum.abs();
+```
 
 ## Resources
 

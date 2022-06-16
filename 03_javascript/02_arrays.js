@@ -66,8 +66,11 @@ let [fruit0, fruit1, ...rest] = fruits;
 
 /*
  * Task:
- * Create a function that accepts two arrays and returns a merged array
+ * Create a function that accepts two arrays
+ * and returns a merged array
  *
  * Task:
- * Create a function that accepts an array of numbers and returns a new array with distinct elements
+ * Create a function that accepts an array
+ * of numbers and returns a new array with
+ * distinct elements.
  */

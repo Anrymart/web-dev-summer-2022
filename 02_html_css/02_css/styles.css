@@ -1,6 +1,5 @@
-.box {
-  width: 200px;
-  height: 200px;
-  border: 10px solid black;
-  background-color: red;
+div, button {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
 }

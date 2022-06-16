@@ -56,8 +56,12 @@ timerId = setInterval(function() {
   console.log(1);
 }, 1000)
 
+
+
+
 // Task:
-// Write a function that outputs the next Fibonacci number every second
+// Write a function that outputs
+// the next Fibonacci number every second
 
 
 
@@ -102,16 +106,3 @@ console.log(john);
 
 
 // function.call(thisArg, arg1, ... , argN)
-
-
-
-
-
-
-
-
-
-
-
-
-
