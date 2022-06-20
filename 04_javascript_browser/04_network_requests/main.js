@@ -7,16 +7,34 @@ request.open("GET", "http://quotes.stormconsultancy.co.uk/random.json");
 request.send();
 
 
+
+
+
 /**
  * Exercise: create a function that requests a quote
  * from the server.
  * Question: when you call this function, how can you get result?
  */
 
-function requestQuote() {
-  // implementation...
+function requestQuote(callback) {
+  const request = new XMLHttpRequest();
+  request.addEventListener("load", function() {
+    callback(this.responseText);
+  });
+  request.open("GET", "http://quotes.stormconsultancy.co.uk/random.json");
+  request.send();
 }
 
+
+requestQuote(function(quote) {
+  console.log(quote);
+  requestQuote(function(quote1) {
+    console.log(quote1);
+    requestQuote(function(quote2) {
+      console.log(quote2);
+    });
+  });
+})
 
 
 
@@ -38,6 +56,8 @@ waitWithCallback(function(result) {
 
 // What if we want to request a second quote
 // as soon as the first quote is loaded?
+
+
 // What if the third one after the second and so on?
 
 
@@ -65,8 +85,23 @@ waitWithPromise()
  * Change implementation of requestQuote function
  * to use promises.
  *
- *
- *
+ */
+
+function getQuote() {
+  return new Promise(function (resolve, reject) {
+    const request = new XMLHttpRequest();
+    request.addEventListener("load", function reqListener() {
+      resolve(this.responseText);
+    });
+    request.open("GET", "http://quotes.stormconsultancy.co.uk/random.json");
+    request.send();
+  });
+}
+
+getQuote().then((result) => console.log(result));
+
+
+ /**
  * Exercise:
  * Now try to load 3 quotes sequentially, so that
  * second loads after the first, and third after
@@ -74,10 +109,6 @@ waitWithPromise()
  *
  */
 
-
-function getQuote() {
-  // implementation...
-}
 
 
 
