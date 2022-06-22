@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas tutorial</title>
+</head>
+<body>
+
+<div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+</div>
+<img id="source" height="300"
+     src="https://picsum.photos/id/237/200/300"
+     alt="Some image"/>
+
+<script>
+
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+
+    // Draw lines
+    context.moveTo(0, 0);
+    context.lineTo(200, 100);
+    context.stroke();
+
+    // Draw circles
+    context.beginPath();
+    context.strokeStyle = "#000000";
+    context.arc(300, 100, 40, 3 * Math.PI / 2, 2 * Math.PI);
+    context.stroke();
+    context.fill();
+    context.closePath();
+
+    // Draw text
+    context.font = "30px Arial";
+    context.fillStyle = "#00ff00";
+    context.fillText("Hello, web-dev!", 10, 200);
+
+    // Draw gradient
+    // Create gradient
+    const gradient = context.createLinearGradient(300, 0, 500, 0);
+    gradient.addColorStop(0, "red");
+    gradient.addColorStop(1, "white");
+
+    // Fill with gradient
+    context.fillStyle = gradient;
+    context.fillRect(300, 200, 500, 80);
+
+    const image = document.getElementById("source");
+    image.addEventListener('load', () => {
+        context.drawImage(image, 350, 350, 200, 200, 400, 400, 200, 200);
+    });
+
+    // Save canvas to an image
+    // image.src = canvas.toDataURL('image/webp');
+
+    // let isMouseDown = false;
+    // let prev;
+    // canvas.addEventListener('mousedown', () => {
+    //     isMouseDown = true;
+    // });
+    // canvas.addEventListener('mouseup', () => {
+    //     isMouseDown = false;
+    //     prev = null;
+    // });
+    // canvas.addEventListener('mousemove', (event) => {
+    //     if (isMouseDown) {
+    //         prev = prev || event;
+    //         context.moveTo(prev.offsetX, prev.offsetY);
+    //         context.lineTo(event.offsetX, event.offsetY);
+    //         context.stroke();
+    //         prev = event;
+    //     }
+    //     console.log(event);
+    // });
+</script>
+
+</body>
+</html>
